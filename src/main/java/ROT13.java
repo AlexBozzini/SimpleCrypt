@@ -12,12 +12,48 @@ public class ROT13  {
 
 
     public String crypt(String text) throws UnsupportedOperationException {
-
-        return "";
+        char[] chars = text.toCharArray();
+        for (int i = 0; i < chars.length; i++){
+            if (isUpperCase(chars[i])){
+                chars[i] += 32;
+                if (chars[i] >= 97 && chars[i] <= 109){
+                    chars[i] += 13;
+                } else if (chars[i] >=110 && chars[i] <= 122){
+                    chars[i] -= 13;
+                }
+                chars[i] -= 32;
+            } else if (isLowerCase(chars[i])){
+                if (chars[i] >= 97 && chars[i] <= 109){
+                    chars[i] += 13;
+                } else if (chars[i] >=110 && chars[i] <= 122){
+                    chars[i] -= 13;
+                }
+            }
+        }
+        System.out.println(new String(chars));
+        return new String(chars);
     }
 
     public String encrypt(String text) {
-        return text;
+        char[] chars = text.toCharArray();
+        for (int i = 0; i < chars.length; i++){
+            if (isUpperCase(chars[i])){
+                chars[i] += 32;
+                if (chars[i] >= 97 && chars[i] <= 109){
+                    chars[i] += 13;
+                } else if (chars[i] >=110 && chars[i] <= 122){
+                    chars[i] -= 13;
+                }
+                chars[i] -= 32;
+            } else if (isLowerCase(chars[i])){
+                if (chars[i] >= 97 && chars[i] <= 109){
+                    chars[i] += 13;
+                } else if (chars[i] >=110 && chars[i] <= 122){
+                    chars[i] -= 13;
+                }
+            }
+        }
+        return new String(chars);
     }
 
     public String decrypt(String text) {
