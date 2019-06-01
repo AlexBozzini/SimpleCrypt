@@ -61,8 +61,21 @@ public class ROT13  {
     }
 
     public static String rotate(String s, Character c) {
-
-        return "";
+        int index = 0;
+        for (int i = 0; i < s.length(); i++){
+            if (s.charAt(i) == c){
+                index = i;
+                break;
+            }
+        }
+        StringBuilder builder = new StringBuilder();
+        for (int i = index; i < s.length(); i++){
+            builder.append(s.charAt(i));
+        }
+        for (int i = 0; i < index; i++){
+            builder.append(s.charAt(i));
+        }
+        return builder.toString();
     }
 
 }
